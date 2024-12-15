@@ -1,0 +1,41 @@
+{
+    "name": "smart-code-completion",
+    "displayName": "smart-code-completion",
+    "description": "A simple VS Code extension using Ollama for code completion.",
+    "version": "0.0.1",
+    "publisher": "hover",
+    "engines": {
+        "vscode": "^1.95.0"
+    },
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.askOllama",
+                "title": "Ask Ollama for Code Completion"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "extension.askOllama",
+                    "when": "editorHasSelection",
+                    "group": "navigation"
+                }
+            ]
+        }
+    },
+    "activationEvents": [
+        "onCommand:extension.askOllama"
+    ],
+    "main": "./out/extension",
+    "dependencies": {
+        "axios": "^0.21.1"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.95.0",
+        "typescript": "^5.7.2"
+    },
+    "scripts": {
+        "compile": "tsc"
+    }
+}
